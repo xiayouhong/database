@@ -48,10 +48,12 @@
 
 				<!-- Search Bar -->
 				<div class="top-nav-search">
-					<form>
-						<input type="text" class="form-control" placeholder="Search here">
-						<button class="btn" type="submit"><i class="fas fa-search"></i></button>
-					</form>
+					<div>
+						<input type="text" class="form-control" id="keyword" placeholder="Search here"
+							onkeyup="dosearch(event)" />
+						<button class="btn" onclick="dosearch(null)" style="margin-left: 0px"><i
+								class="fas fa-search"></i></button>
+					</div>
 				</div>
 				<!-- /Search Bar -->
 
@@ -101,17 +103,17 @@
 						<li class="menu-title">
 							<span>Main Menu</span>
 						</li>
-						<li class="active">
+						<li >
 							<a href="/home/"><i class="fas fa-th-large"></i> <span>首页</span></a>
 						</li>
-						<li class="submenu">
+						<li class="submenu active">
 							<a href="#"><i class="fas fa-user-graduate"></i> <span> 学生信息管理</span> <span
 									class="menu-arrow"></span></a>
 							<ul>
 								<li><a href="/stu-list/">学生信息</a></li>
-								<li><a href="/stu-sc-list/">学生选课及成绩</a></li>
+								<li><a href="/stu-sc-list/" class="active">学生选课及成绩</a></li>
 								<li><a href="/add-stu/">添加学生信息</a></li>
-<!--								<li><a href="/stu-sno/">编辑学生信息</a></li>-->
+
 							</ul>
 						</li>
                         <li class="submenu">
@@ -235,12 +237,6 @@
 					</div>
 
 				</div>
-
-				<!-- Footer -->
-				<footer>
-					<p>Copyright © 2020By <a href="http://www.bootstrapmb.com/">Dreamguys.</a></p>
-				</footer>
-				<!-- /Footer -->
 			</div>
 			<!-- /Page Wrapper -->
 
@@ -259,6 +255,19 @@
 
 		<!-- Custom JS -->
 		<script  src="/js/script.js"></script>
-
+		<script type="text/javascript">
+			function dosearch(e) {
+				if (e != null && e.keyCode != 13) {
+					return false
+				}
+				var keyword = $.trim($("#keyword").val());
+				if (keyword.length == 0 || keyword.length > 15 || keyword.indexOf("%") >= 0) {
+					window.alert('关键字不合法');
+					$("#keyword").focus();
+					return false;
+				}
+				location.href = '/search/stu-' + keyword;
+			}
+		</script>
     </body>
 </html>

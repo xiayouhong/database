@@ -16,6 +16,8 @@ def login():
         if result:
             if Userno == result.Userno and Password == result.Password:
                 session['Userno'] = Userno
+                session['Username'] = result.Username
+                session['Power'] = result.Power
                 return redirect('/home/')
             else:
                 return u"用户名或密码错误，请确认后再登录。"
