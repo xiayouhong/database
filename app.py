@@ -13,14 +13,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-# @app.route('/code')
-# def code():
-#     code, bstring = ImagCode().get_code()
-#     response = make_response(bstring)
-#     response.headers['Content-Type'] = 'image/jpeg'
-#     session['imgVerifi'] = code.lower()
-#     return response
 
+@app.before_request#执行所有装饰器都要执行当前装饰器(简洁版实现同样功能)
+def login_required():
+    if request.path in ['/']: #如果登录的路由是和登录就返会none
+        return None
+    user=session.get('Userno')  #获取用户登录信息
+    if not user:                 #没有登录就自动跳转到登录页面去
+        return redirect('/')
+    return None
 
 
 
