@@ -13,6 +13,14 @@ def courses():
     result = course.find_all_list()
     return render_template('courses.html', result=result)
 
+@course.route('/search/course-<keyword>')
+def search(keyword):
+    keyword = keyword.strip()
+    course = Course()
+    cou = course.find_by_cno(keyword)
+    result = [cou]
+    return render_template('courses.html', result=result)
+
 
 @course.route('/course-list/<cno>')
 def cou(cno):

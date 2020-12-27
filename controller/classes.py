@@ -13,6 +13,15 @@ def classess():
     return render_template('classes.html', result=result)
 
 
+@classes.route('/search/classes-<keyword>')
+def search(keyword):
+    keyword = keyword.strip()
+    classes = Classes()
+    cla = classes.find_by_classno(keyword)
+    result = [cla]
+    return render_template('classes.html', result=result)
+
+
 @classes.route('/classes-list/<classno>')
 def cou(classno):
     classes = Classes()

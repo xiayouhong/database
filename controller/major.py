@@ -14,6 +14,15 @@ def major_list():
     return render_template('major.html', result=result)
 
 
+@major.route('/search/major-<keyword>')
+def search(keyword):
+    keyword = keyword.strip()
+    major = Major()
+    maj = major.find_by_majorno(keyword)
+    result = [maj]
+    return render_template('major.html', result=result)
+
+
 @major.route('/major-list/<majorno>')
 def cou(majorno):
     major =Major()

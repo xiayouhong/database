@@ -32,6 +32,15 @@ def stupag():
     result = student.find_all_list()
     return render_template('students.html', result=result)
 
+@index.route('/search/stu-<keyword>')
+def search(keyword):
+    keyword = keyword.strip()
+    student = Student()
+    stu = student.find_by_sno_list(keyword)
+    result = [stu]
+    print(result)
+    return render_template('students.html', result=result)
+
 
 @index.route('/stu-sno/<sno>')
 def stu(sno):
@@ -50,6 +59,14 @@ def stugradepag():
 def sturppag():
     rp = RP()
     result =rp.find_all()
+    return render_template('rps.html', result=result)
+
+@index.route('/search/rp-<keyword>')
+def searchs(keyword):
+    keyword = keyword.strip()
+    rp = RP()
+    rps = rp.find_by_sno(keyword)
+    result = [rps]
     return render_template('rps.html', result=result)
 
 

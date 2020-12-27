@@ -14,6 +14,14 @@ def institute_list():
     result =institute.find_all()
     return render_template('institute.html', result=result)
 
+@institute.route('/search/institute-<keyword>')
+def search(keyword):
+    keyword = keyword.strip()
+    institute = Institute()
+    ins = institute.find_by_insno(keyword)
+    result = [ins]
+    return render_template('institute.html', result=result)
+
 
 @institute.route('/institute-list/<insno>')
 def cou(insno):
