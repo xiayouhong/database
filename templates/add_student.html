@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Preskool - Students</title>
+        <title>学生学籍管理系统</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" href="/img/favicon.png">
@@ -55,23 +55,26 @@
 					
 					<!-- User Menu -->
 					<li class="nav-item dropdown has-arrow">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img class="rounded-circle" src="/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+						<a href=" " class="dropdown-toggle nav-link" data-toggle="dropdown">
 						</a>
 						<div class="dropdown-menu">
 							<div class="user-header">
-								<div class="avatar avatar-sm">
-									<img src="/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
-								</div>
 								<div class="user-text">
 									<h6>{{session.get('Userno')}}</h6>
-									<p class="text-muted mb-0">Administrator</p>
+									<p class="text-muted mb-0">{{session.get('Username')}}</p>
+									<p class="text-muted mb-0">{{session.get('Power')}}</p>
 								</div>
 							</div>
+							{% if session.get("Power") == '高级管理员' %}
 							<a class="dropdown-item" href="/admin/">我的信息</a>
-                            <a class="dropdown-item" href="/update_admin/">修改信息</a>
-							<a class="dropdown-item" href="/add_admin/">添加管理员</a>
-							<a class="dropdown-item" href="/logout/">退出登录</a>
+								<a class="dropdown-item" href="/update_admin/">修改信息</a>
+									<a class="dropdown-item" href="/add_admin/">添加管理员</a>
+										<a class="dropdown-item" href="/logout/">退出登录</a>
+											{% else %}
+											<a class="dropdown-item" href="/admin/">我的信息</a>
+												<a class="dropdown-item" href="/update_admin/">修改信息</a>
+													<a class="dropdown-item" href="/logout/">退出登录</a>
+														{% endif %}
 						</div>
 					</li>
 					<!-- /User Menu -->
