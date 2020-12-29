@@ -1,44 +1,84 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户登录界面</title>
-</head>
-<body bgcolor="#F0F0F0" >
-    <form method="post">
-        <table width="100%">
-            <tr>
-                <th colspan="3" ALIGN=CENTER><font size="5">注册界面</font>
-                </th>
-            </tr>
-            <tr>
-                <td colspan="3"><hr>
-                </td>
-            </tr>
-         <tr><td width="500"></td>
-                <td ALIGN=CENTER BGCOLOR="#ffffff" colspan="1">
-                    <div style="position:relative;">
-                      
-                        <img src="/img/loginindex.jpg"height="200" width="700"/>
-                        
-                        
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Preskool - Login</title>
+		
+		<!-- Favicon -->
+<!--        <link rel="shortcut icon" href="/img/favicon.png">-->
+	
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&display=swap">
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+	
+		<!-- Main Wrapper -->
+        <div class="main-wrapper login-body">
+            <div class="login-wrapper">
+            	<div class="container">
+                	<div class="loginbox">
+                    	<div class="login-left">
+                        </div>
+                        <div class="login-right">
+							<div class="login-right-wrap">
+								<h1>Login</h1>
+								<p class="account-subtitle">Access to our dashboard</p>
+								
+								<!-- Form -->
+								<form method="post">
+									<div class="form-group">
+										<input class="form-control" name='Userno' type="text" placeholder="管理员号">
+									</div>
+									<div class="form-group">
+										<input class="form-control" name='Password' type="text" placeholder="密码">
+									</div>
+									<div class="form-group">
+										<button class="btn btn-primary btn-block" type="submit">登录</button>
+									</div>
+								</form>
+								<!-- /Form -->
+								
+								<div class="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a></div>
+								<div class="login-or">
+									<span class="or-line"></span>
+									<span class="span-or">or</span>
+								</div>
+								  
+								<!-- Social Login -->
+								<div class="social-login">
+									<span>Login with</span>
+									<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="google"><i class="fab fa-google"></i></a>
+								</div>
+								<!-- /Social Login -->
+								
+								<div class="text-center dont-have">Don’t have an account? <a href="register.html">Register</a></div>
+							</div>
+                        </div>
                     </div>
-                    
-                </td>
-                <td width="500"></td>
-            </tr>
-            <tr>
-                <td width="500"></td>
-                <td ALIGN=CENTER BGCOLOR="#ffffff">
-                     <form action="/" method="post">
-                        <p><input name="Userno" placeholder="学号" ></p>
-                        <p><input name="Password" placeholder="密码" ></p>
-                        <p><button type="submit">登录</button></p>
-                      </form>
-                <td width="500"></td>
-            </tr>
-           
-        </table>
-    </form>
-</body>
+                </div>
+            </div>
+        </div>
+		<!-- /Main Wrapper -->
+		
+		<!-- jQuery -->
+        <script src="/js/jquery-3.5.1.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+        <script src="/js/popper.min.js"></script>
+        <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="/js/script.js"></script>
+		
+    </body>
 </html>

@@ -1534,11 +1534,14 @@ html.menu-opened body {
     float: left;
     margin-left: 15px;
 }
-.top-nav-search form {
-    margin-top: 10px;
-	position: relative;
-    width: 300px;
-}
+
+
+
+/*.top-nav-search div{*/
+/*    margin-top: 10px;*/
+/*	position: relative;*/
+/*    width: 300px;*/
+/*}*/
 .top-nav-search .form-control {
     background-color: transparent;
     border-color: rgba(0, 0, 0, 0.1);

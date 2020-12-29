@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Preskool - Students</title>
+        <title>学生学籍管理系统</title>
 
 		<!-- Favicon -->
         <link rel="shortcut icon" href="/img/favicon.png">
@@ -43,14 +43,6 @@
 					<i class="fas fa-align-left"></i>
 				</a>
 
-				<!-- Search Bar -->
-				<div class="top-nav-search">
-					<form>
-						<input type="text" class="form-control" placeholder="Search here">
-						<button class="btn" type="submit"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-				<!-- /Search Bar -->
 
 				<!-- Mobile Menu Toggle -->
 				<a class="mobile_btn" id="mobile_btn">
@@ -63,23 +55,26 @@
 
 					<!-- User Menu -->
 					<li class="nav-item dropdown has-arrow">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-							<span class="user-img"><img class="rounded-circle" src="/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+						<a href=" " class="dropdown-toggle nav-link" data-toggle="dropdown">
 						</a>
 						<div class="dropdown-menu">
 							<div class="user-header">
-								<div class="avatar avatar-sm">
-									<img src="/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
-								</div>
 								<div class="user-text">
 									<h6>{{session.get('Userno')}}</h6>
-									<p class="text-muted mb-0">Administrator</p>
+									<p class="text-muted mb-0">{{session.get('Username')}}</p>
+									<p class="text-muted mb-0">{{session.get('Power')}}</p>
 								</div>
 							</div>
+							{% if session.get("Power") == '高级管理员' %}
 							<a class="dropdown-item" href="/admin/">我的信息</a>
-                            <a class="dropdown-item" href="/update_admin/">修改信息</a>
-							<a class="dropdown-item" href="/add_admin/">添加管理员</a>
-							<a class="dropdown-item" href="/logout/">退出登录</a>
+								<a class="dropdown-item" href="/update_admin/">修改信息</a>
+									<a class="dropdown-item" href="/add_admin/">添加管理员</a>
+										<a class="dropdown-item" href="/logout/">退出登录</a>
+											{% else %}
+											<a class="dropdown-item" href="/admin/">我的信息</a>
+												<a class="dropdown-item" href="/update_admin/">修改信息</a>
+													<a class="dropdown-item" href="/logout/">退出登录</a>
+														{% endif %}
 						</div>
 					</li>
 					<!-- /User Menu -->
@@ -96,9 +91,9 @@
 				    <div id="sidebar-menu" class="sidebar-menu">
 				    	<ul>
 						<li class="menu-title">
-							<span>Main Menu</span>
+							<span>主目录</span>
 						</li>
-						<li class="active">
+						<li >
 							<a href="/home/"><i class="fas fa-th-large"></i> <span>首页</span></a>
 						</li>
 						<li class="submenu">
@@ -111,7 +106,7 @@
 <!--								<li><a href="/stu-sno/">编辑学生信息</a></li>-->
 							</ul>
 						</li>
-                        <li class="submenu">
+                        <li class="submenu active">
 							<a href="#"><i class="fas fa-user-graduate"></i> <span> 课程管理</span> <span
 									class="menu-arrow"></span></a>
 							<ul>
@@ -178,10 +173,10 @@
 					<div class="page-header">
 						<div class="row align-items-center">
 							<div class="col">
-								<h3 class="page-title">Update Student</h3>
+								<h3 class="page-title">编辑课程信息</h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="students.html">Student</a></li>
-									<li class="breadcrumb-item active">Update Student</li>
+									<li class="breadcrumb-item"><a href="students.html">课程管理</a></li>
+									<li class="breadcrumb-item active">编辑课程信息</li>
 								</ul>
 							</div>
 						</div>
@@ -196,7 +191,7 @@
 									<form action="/edit-cou/" method="POST">
 										<div class="row">
 											<div class="col-12">
-												<h5 class="form-title"><span>Course Information</span></h5>
+												<h5 class="form-title"><span>编辑课程信息</span></h5>
 											</div>
 											<div class="col-12 col-sm-6">
 												<div class="form-group">
@@ -249,7 +244,7 @@
 												</div>
 											</div>
 											<div class="col-12">
-												<button type="submit" class="btn btn-primary">Submit</button>
+												<button type="submit" class="btn btn-primary">提交</button>
 											</div>
 										</div>
 									</form>
