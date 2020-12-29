@@ -8,7 +8,7 @@ pymysql.install_as_MySQLdb()
 app = Flask(__name__, template_folder='templates', static_url_path='/', static_folder='static')
 app.config['SECRET_KEY'] = os.urandom(24)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:1234a@localhost:3306/StudentManager?charset=utf8'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:lgh1519@localhost:3306/StudentManager?charset=utf8'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
